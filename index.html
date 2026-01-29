@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warna</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div id="mainmenu" class="vh-100 container flex-column justify-content-center align-items-center" style="display: flex;">
+        <h1>Pilih Warnamu!</h1>
+        <div style="max-width: 25rem;" class="w-100 d-flex flex-column align-items-center gap-2">
+            <button type="button" class="w-100 btn btn-primary" onclick="toColor('blue')">Biru</button>
+            <button type="button" class="w-100 btn btn-success" onclick="toColor('green')">Hijau</button>
+            <button type="button" class="w-100 btn btn-danger" onclick="toColor('red')">Merah</button>
+            <button type="button" class="w-100 btn btn-warning" onclick="toColor('yellow')">Kuning</button>
+        </div>
+    </div>
+
+    <div id="blue" class="vh-100 p-2 bg-primary" style="display: none;">
+        <button type="button" class="btn btn-outline-light" onclick="toMainMenu()">Kembali</button>
+    </div>
+    <div id="green" class="vh-100 p-2 bg-success" style="display: none;">
+        <button type="button" class="btn btn-outline-light" onclick="toMainMenu()">Kembali</button>
+    </div>
+    <div id="red" class="vh-100 p-2 bg-danger" style="display: none;">
+        <button type="button" class="btn btn-outline-light" onclick="toMainMenu()">Kembali</button>
+    </div>
+    <div id="yellow" class="vh-100 p-2 bg-warning" style="display: none;">
+        <button type="button" class="btn btn-outline-dark" onclick="toMainMenu()">Kembali</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        const mainMenuScreen = document.getElementById('mainmenu');
+        const blueScreen = document.getElementById('blue');
+        const greenScreen = document.getElementById('green');
+        const redScreen = document.getElementById('red');
+        const yellowScreen = document.getElementById('yellow');
+        function hideAllScreen() {
+            mainMenuScreen.style.display = 'none';
+            blueScreen.style.display = 'none';
+            greenScreen.style.display = 'none';
+            redScreen.style.display = 'none';
+            yellowScreen.style.display = 'none';
+        }
+
+        function toMainMenu() {
+            hideAllScreen();
+            mainMenuScreen.style.display = 'flex';
+        }
+
+        function toColor(color) {
+            hideAllScreen();
+            switch (color) {
+                case 'blue':
+                    blueScreen.style.display = 'block';
+                    break;
+                case 'green':
+                    greenScreen.style.display = 'block';
+                    break;
+                case 'red':
+                    redScreen.style.display = 'block';
+                    break;
+                case 'yellow':
+                    yellowScreen.style.display = 'block';
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
